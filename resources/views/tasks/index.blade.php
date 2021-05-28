@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (Auth::check()) 
     <h1>メッセージ一覧</h1>
 
     @if (count($tasks) > 0)
@@ -25,7 +25,12 @@
                 @endforeach
             </tbody>
         </table>
-    @endif
     {{-- メッセージ作成ページへのリンク --}}
     {!! link_to_route('tasks.create', '新規メッセージの投稿', [], ['class' => 'btn btn-primary']) !!}
+    
+
+    @endif
+@else
+    <h1>新規登録またはログインしてください。</h1>
+@endif
 @endsection
