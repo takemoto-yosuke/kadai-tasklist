@@ -14,6 +14,18 @@ class TasksController extends Controller
      */
     public function index()
     {
+ 
+/*
+        // メッセージ一覧を取得
+        $tasks = Task::all();
+        
+        // 認証済みユーザ（閲覧者）がその投稿の所有者である場合は、表示
+        if (\Auth::id() === $tasks->user_id) {
+            return view('tasks.index', [
+                'tasks' => $tasks,
+            ]);
+        }    
+*/
         
         // メッセージ一覧を取得
         $tasks = Task::all();
